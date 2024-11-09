@@ -1,0 +1,21 @@
+services:
+  server:
+    build: .
+    ports:
+      - "50051:50051"
+    volumes:
+      - ./server/:/app/
+      - ./protos/:/app/protos/
+    environment:
+      - PYTHONPATH=/app/gen:$PYTHONPATH
+    command: sleep infinity
+  client:
+    build: .
+    links:
+      - server
+    volumes:
+      - ./client/:/app/
+      - ./protos/:/app/protos/
+    environment:
+      - PYTHONPATH=/app/gen:$PYTHONPATH
+    command: sleep infinity

@@ -1,0 +1,19 @@
+{
+    "name": "Client",
+	"dockerComposeFile": [
+		"../../compose.yaml"
+	],
+	"service": "client",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/sh"
+            },
+            "extensions": [
+                "ms-python.python"
+            ]
+        }
+    },
+	"shutdownAction": "none",
+	"workspaceFolder": "/app"
+}
